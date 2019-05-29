@@ -36,7 +36,6 @@ public class BattleShip {
         System.out.println ("Cirkalo");
         System.out.println ("Amount of times it can fire " + ship5.GetFire());
         System.out.println ("Crit in 3 " + ship5.GetCrit());
-   
+
     }
-    
-}
+    }
