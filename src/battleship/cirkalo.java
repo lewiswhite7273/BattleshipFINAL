@@ -13,8 +13,19 @@ package battleship;
 public class cirkalo extends Ship{
     private int health;
     private int segments;
-    private int damage;  
+    private int damage; 
+    private String Ship;
     
     public cirkalo (){
+        health = 150;
+        segments = 3;
+        damage = 25;
+        Ship = "Cirkalo";
     }
+    public int GetDamage(){
+    return damage;
+    }
+    public String GetShip (){
+        return Ship;
+       }
 }
