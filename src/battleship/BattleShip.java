@@ -6,6 +6,8 @@
 
 package battleship;
 
+import java.util.Scanner;
+
 /**
  *
  * @author anhen3335
@@ -35,7 +37,108 @@ public class BattleShip {
         cirkalo ship5 = new cirkalo ();
         System.out.println ("Cirkalo");
         System.out.println ("Amount of times it can fire " + ship5.GetFire());
-        System.out.println ("Crit in 3 " + ship5.GetCrit());
-
+        System.out.println ("Crit in 3 " + ship5.GetCrit());   
+        
+        
+        int game = 1;
+        String Ship;
+        while (game == 1){
+            Scanner input = new Scanner(System.in);
+            int use1, use2, use3, use4, use5;
+            use1 = 0;
+            use2 = 0;
+            use3 = 0;
+            use4 = 0;
+            use5 = 0;
+            while (use1 + use2 + use3 + use4 + use5 < 5){
+                 Ship = input.nextLine();
+              if (Ship.equals(ship1.GetShip()) && use1 == 0){
+                System.out.println (ship1.GetShip() + " fire?");
+                for (int i = 0; i < ship1.GetFire();){
+                String fire;
+                fire = input.nextLine();
+                    if ("fire".equals(fire)){
+                  if (ship1.GetCrit() == 3){
+                        System.out.println ("Super Boom");
+                    }  
+                  else {
+                      System.out.println("normal Boom");
+                  }
+                  use1 = 1;
+                }
+                    i++;
+                }  
+            }
+               if (Ship.equals(ship2.GetShip()) && use2 == 0){
+                System.out.println (ship2.GetShip() + " fire?");
+                for (int i = 0; i < ship2.GetFire();){
+                String fire;
+                fire = input.nextLine();
+                    if ("fire".equals(fire)){
+                  if (ship2.GetCrit() == 3){
+                        System.out.println ("Super Boom");
+                    }  
+                  else {
+                      System.out.println("normal Boom");
+                  }
+                  use2 = 1;
+                }
+                    i++;
+                }
+        }   
+                 if (Ship.equals(ship3.GetShip()) && use3 == 0){
+                System.out.println (ship3.GetShip() + " fire?");
+                for (int i = 0; i < ship3.GetFire();){
+                String fire;
+                fire = input.nextLine();
+                    if ("fire".equals(fire)){
+                  if (ship3.GetCrit() == 3){
+                        System.out.println ("Super Boom");
+                    }  
+                  else {
+                      System.out.println("normal Boom");
+                  }
+                  use3 = 1;
+                }
+                    i++;
+                }
+        } 
+              if (Ship.equals(ship4.GetShip()) && use4 == 0){
+                System.out.println (ship4.GetShip() + " fire?");
+                for (int i = 0; i < ship4.GetFire();){
+                String fire;
+                fire = input.nextLine();
+                    if ("fire".equals(fire)){
+                  if (ship4.GetCrit() == 3){
+                        System.out.println ("Super Boom");
+                    }  
+                  else {
+                      System.out.println("normal Boom");
+                  }
+                  use4 = 1;
+                }
+                    i++;
+                }
+        } 
+            if (Ship.equals(ship5.GetShip()) && use5 == 0){
+                System.out.println (ship5.GetShip() + " fire?");
+                for (int i = 0; i < ship5.GetFire();){
+                String fire;
+                fire = input.nextLine();
+                    if ("fire".equals(fire)){
+                  if (ship5.GetCrit() == 3){
+                        System.out.println ("Super Boom");
+                    }  
+                  else {
+                      System.out.println("normal Boom");
+                  }
+                  use5 = 1;
+                }
+                    i++;
+                }
+        } 
+                }
+            
     }
     }
+}
