@@ -15,12 +15,23 @@ public class BlockadeRunner extends Ship{
     private int segments;
     private int damage; 
     private int crit;
+    private String Ship;
     
     public BlockadeRunner(){
       crit = (int) (Math.random() * 3);
+      health = 60;
+      damage = 10;
+      segments = 1;
+      Ship = "BlockadeRunner";
+
     }
        public int GetCrit (){
            return crit;
        }
-       
+    public int GetDamage(){
+        return damage;
+    }
+         public String GetShip (){
+           return Ship;
+       }
 }
