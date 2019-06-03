@@ -22,6 +22,7 @@ public class Ship {
         return fire;
     }
     public int GetCrit(){
+        crit = (int) (Math.random() * 6);
         return crit;
     }
 }
