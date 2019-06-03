@@ -15,12 +15,23 @@ public class Transporteur extends Ship {
     private int segments;
     private int damage; 
     private int fire; 
+    private String Ship;
     
     public Transporteur (){
         fire = 2;
+        health = 80;
+        segments = 4;
+        damage = 10;
+        Ship = "Transporteur";
     }
-        public int GetFire(){
+    public int GetFire(){
         return fire;
     }
+    public int GetDamage(){
+        return damage;
+    }
+    public String GetShip (){
+        return Ship;
+       }
     
 }
