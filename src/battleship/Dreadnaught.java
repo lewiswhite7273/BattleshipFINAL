@@ -14,9 +14,19 @@ public class Dreadnaught extends Ship{
     private int health;
     private int segments;
     private int damage; 
-;
+    private String Ship;
+
     
     public Dreadnaught (){
+        health = 200;
+        damage = 30;
+        segments = 5;
+        Ship = "Dreadnaught";
     }
-
+    public int GetDamage(){
+        return damage;
+    }
+    public String GetShip (){
+        return Ship;
+       }
 }
