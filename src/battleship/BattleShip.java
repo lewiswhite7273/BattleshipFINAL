@@ -13,33 +13,40 @@ import java.util.Scanner;
  * @author anhen3335
  */
 public class BattleShip {
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        int Grid[][] =new int[10][10];
+        int row;
+        int col;
+        for (row =0; row < Grid.length; row++){
+            for (col = 0; col<Grid[row].length; col++){
+                int num = (int) (Math.random() * 6);
+                if (num == 4){
+                    Grid[col][row] = 1;
+                }
+                else {
+                    Grid[col][row] = 0;
+                }
+                System.out.print (col + ": col " + row + ": row " );
+                System.out.println ("1 euqals thing there: " + Grid[col][row]);
+            }
+            
+        }
+        aiTurn(Grid);
+        playerTurn();
+    }
+    public static void aiTurn(int Grid[][]){
+         
+     }
+    
+    public static void playerTurn(){
         Dreadnaught ship1 = new Dreadnaught ();
-        System.out.println ("Dreadnaught");
-        System.out.println ("Amount of times it can fire " + ship1.GetFire());
-        System.out.println ("Crit in 3 " + ship1.GetCrit());
         Transporteur ship2 = new Transporteur ();
-        System.out.println ("Transporteur");
-        System.out.println ("Amount of times it can fire " + ship2.GetFire());
-        System.out.println ("Crit in 3 " + ship2.GetCrit());
         BlockadeRunner ship3 = new BlockadeRunner ();
-        System.out.println ("BlockadeRunner");
-        System.out.println ("Amount of times it can fire " + ship3.GetFire());
-        System.out.println ("Crit in 1 " + ship3.GetCrit());
         StarDestroyer ship4 = new StarDestroyer ();
-        System.out.println ("StarDestroyer");
-        System.out.println ("Amount of times it can fire " + ship4.GetFire());
-        System.out.println ("Crit in 3 " + ship4.GetCrit());
         cirkalo ship5 = new cirkalo ();
-        System.out.println ("Cirkalo");
-        System.out.println ("Amount of times it can fire " + ship5.GetFire());
-        System.out.println ("Crit in 3 " + ship5.GetCrit());   
-        
-        
         int game = 1;
         String Ship;
         while (game == 1){
@@ -70,8 +77,8 @@ public class BattleShip {
                 }  
             }
                if (Ship.equals(ship2.GetShip()) && use2 == 0){
-                System.out.println (ship2.GetShip() + " fire?");
                 for (int i = 0; i < ship2.GetFire();){
+                System.out.println (ship2.GetShip() + " fire?");
                 String fire;
                 fire = input.nextLine();
                     if ("fire".equals(fire)){
@@ -142,6 +149,6 @@ public class BattleShip {
             game = 1;
             System.out.println ("Turn done");
             
-    }
+    }  
     }
 }
