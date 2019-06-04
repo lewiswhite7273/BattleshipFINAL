@@ -132,12 +132,15 @@ public class BattleShip {
                   else {
                       System.out.println("normal Boom");
                   }
-                  use5 = 1;
+                                  use5 = 1;
+                                  System.out.println (use5);
                 }
                     i++;
                 }
         } 
                 }
+            game = 1;
+            System.out.println ("Turn done");
             
     }
     }
