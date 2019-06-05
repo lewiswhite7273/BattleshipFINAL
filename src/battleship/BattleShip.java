@@ -38,7 +38,8 @@ public class BattleShip {
         playerTurn();
     }
     public static void aiTurn(int Grid[][]){
-         
+      int row = (int) (Math.random() * 10);
+      int col = (int) (Math.random() *10);
      }
     
     public static void playerTurn(){
