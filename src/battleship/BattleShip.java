@@ -42,8 +42,6 @@ public class BattleShip {
     public static void aiTurn(int Grid[][], int i){
       int row = (int) (Math.random() * 10);
       int col = (int) (Math.random() *10);
-      for (int q =0; q < Grid.length; q++){
-     }
       System.out.println (i);
       while (i != 0){
           System.out.println ("Go");
