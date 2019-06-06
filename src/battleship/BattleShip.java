@@ -44,7 +44,6 @@ public class BattleShip {
         use3 = 0;
         use4 = 0;
         use5 = 0;
-  
         String Ship;
         while (game == 1){
             if (turn == 1){
@@ -106,12 +105,13 @@ public class BattleShip {
                   else {
                       System.out.println("normal Boom");
                   }
-                  // makes the ship used
-                   i++;
+                  
                 }
                     // makes it fire once
-                    return use1 = 1;
-                }  
+                    i++;
+                } 
+                use1 = 1;
+                return use1;
             }
                if (Ship.equals(ship2.GetShip()) && use2 == 0){
                 for (int i = 0; i < ship2.GetFire();){
