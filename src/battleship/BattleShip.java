@@ -81,7 +81,7 @@ public class BattleShip {
           return i;
     }
     
-    public static int playerTurn(int use1, int use2, int use3, int use4, int use5, String Ship){
+    public static void playerTurn(int use1, int use2, int use3, int use4, int use5, String Ship){
         // Creates the ships
         Dreadnaught ship1 = new Dreadnaught ();
         Transporteur ship2 = new Transporteur ();
@@ -105,13 +105,11 @@ public class BattleShip {
                   else {
                       System.out.println("normal Boom");
                   }
-                  
+                use1 = 1;
                 }
                     // makes it fire once
                     i++;
                 } 
-                use1 = 1;
-                return use1;
             }
                if (Ship.equals(ship2.GetShip()) && use2 == 0){
                 for (int i = 0; i < ship2.GetFire();){
@@ -125,7 +123,7 @@ public class BattleShip {
                   else {
                       System.out.println("normal Boom");
                   }
-                  return use2 = 1;
+                 use2 = 1;
                 }
                     i++;
                 }
@@ -142,7 +140,7 @@ public class BattleShip {
                   else {
                       System.out.println("normal Boom");
                   }
-                  return use3 = 1;
+                  use3 = 1;
                 }
                     i++;
                 }
@@ -159,7 +157,7 @@ public class BattleShip {
                   else {
                       System.out.println("normal Boom");
                   }
-                  return use4 = 1;
+                 use4 = 1;
                 }
                     i++;
                 }
@@ -176,11 +174,10 @@ public class BattleShip {
                   else {
                       System.out.println("normal Boom");
                   }
-                  return use5 = 1;
+                 use5 = 1;
                 }
                     i++;
                 }
         }    
-            return use1;
                 } 
     }
