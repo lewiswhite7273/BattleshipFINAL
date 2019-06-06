@@ -36,57 +36,62 @@ public class BattleShip {
             }
             
         }
-        aiTurn(Grid, i);
-        playerTurn();
+        int game = 1;
+        int turn =1;
+        int use1, use2, use3, use4, use5 ;
+        use1 = 0;
+        use2 = 0;
+        use3 = 0;
+        use4 = 0;
+        use5 = 0;
+  
+        String Ship;
+        while (game == 1){
+            if (turn == 1){
+            Scanner input = new Scanner(System.in);
+            Ship = input.nextLine();
+            playerTurn(use1, use2, use3, use4, use5, Ship);
+             turn =2;
+             System.out.println (use1);
+             System.out.println (use2);
+             System.out.println (use3);
+             System.out.println (use4);
+             System.out.println (use5);
+            }
+            else if (turn == 2 && i != 0){
+                aiTurn(Grid, i); 
+                System.out.println (i);
+                turn =1;
+            } 
+        }
+        System.out.println ("We are done all of the test");
     }
-    public static void aiTurn(int Grid[][], int i){
+    public static int aiTurn(int Grid[][], int i){
       int row = (int) (Math.random() * 10);
       int col = (int) (Math.random() *10);
       System.out.println (i);
-      while (i != 0){
           System.out.println ("Go");
-        if (Grid[col][row] == 2){
-         System.out.println ("found one");
-          row = (int) (Math.random() * 10);
-          col = (int) (Math.random() *10);
-      }
-        else if (Grid[col][row] == 1){
-          row = (int) (Math.random() * 10);
-          col = (int) (Math.random() *10);
-            Grid[col][row] = 2;
-            i = i-1;
-            System.out.println ("miss");
-        }
-        else {
-          row = (int) (Math.random() * 10);
-          col = (int) (Math.random() *10);
-        }
-      }
-      System.out.println ("Done");
+          if (Grid[col][row] == 1){
+              System.out.println ("Found One");
+             Grid[col][row] = 2;
+              return i -=1;
+          }
+          else if (Grid[col][row] == 0){
+        System.out.println ("Miss");
+    }
+          return i;
     }
     
-    public static void playerTurn(){
+    public static int playerTurn(int use1, int use2, int use3, int use4, int use5, String Ship){
         // Creates the ships
         Dreadnaught ship1 = new Dreadnaught ();
         Transporteur ship2 = new Transporteur ();
         BlockadeRunner ship3 = new BlockadeRunner ();
         StarDestroyer ship4 = new StarDestroyer ();
         cirkalo ship5 = new cirkalo ();
-        int game = 1;
-        String Ship;
-        while (game == 1){
             Scanner input = new Scanner(System.in);
-            int use1, use2, use3, use4, use5;
-            use1 = 0;
-            use2 = 0;
-            use3 = 0;
-            use4 = 0;
-            use5 = 0;
-           // Checking if the ship has been used; 
-            while (use1 + use2 + use3 + use4 + use5 < 5){
                 // Gets the ship that will fire
-                Ship = input.nextLine();
-              if (Ship.equals(ship1.GetShip()) && use1 == 0){
+               if (Ship.equals(ship1.GetShip()) && use1 == 0){
                 System.out.println (ship1.GetShip() + " fire?");
                 // How many times the ship can fire
                 for (int i = 0; i < ship1.GetFire();){
@@ -102,10 +107,10 @@ public class BattleShip {
                       System.out.println("normal Boom");
                   }
                   // makes the ship used
-                  use1 = 1;
+                   i++;
                 }
                     // makes it fire once
-                    i++;
+                    return use1 = 1;
                 }  
             }
                if (Ship.equals(ship2.GetShip()) && use2 == 0){
@@ -120,7 +125,7 @@ public class BattleShip {
                   else {
                       System.out.println("normal Boom");
                   }
-                  use2 = 1;
+                  return use2 = 1;
                 }
                     i++;
                 }
@@ -137,7 +142,7 @@ public class BattleShip {
                   else {
                       System.out.println("normal Boom");
                   }
-                  use3 = 1;
+                  return use3 = 1;
                 }
                     i++;
                 }
@@ -154,7 +159,7 @@ public class BattleShip {
                   else {
                       System.out.println("normal Boom");
                   }
-                  use4 = 1;
+                  return use4 = 1;
                 }
                     i++;
                 }
@@ -171,15 +176,11 @@ public class BattleShip {
                   else {
                       System.out.println("normal Boom");
                   }
-                                 System.out.println (use5);
+                  return use5 = 1;
                 }
                     i++;
                 }
-        } 
-                }
-            game = 1;
-            System.out.println ("Turn done");
-            
-    }  
+        }    
+            return use1;
+                } 
     }
-}
