@@ -30,10 +30,13 @@ public class BattleShip {
                 else {
                     Grid[col][row] = 0;
                 }
-//                System.out.print (col + ": col " + row + ": row " );
-//                System.out.println ("1 euqals thing there: " + Grid[col][row]);
+                System.out.print (col + ": col " + row + ": row " );
+                System.out.println ("1 euqals thing there: " + Grid[col][row]);
             }
         }
+        row = 0;
+       col = 0;
+         displayGrid(Grid, row, col);
         int game = 1;
         int turn =1;
         int use1, use2, use3, use4, use5 ;
@@ -177,5 +180,23 @@ public class BattleShip {
         }
         System.out.println ("We are done all of the test");
     }
-
+  public static void displayGrid(int Grid[][],int col,int row) {
+    String output = "a b c d e f g h i j k \n";
+    for (row = 0; row < 10; row++) {
+      if ((row >= 0) && (row <= 10)) {
+        col = 0;
+        output += Grid[col][row] + " ";
+      }
+      for (col = 0; col < 10; col++) {
+        output += Grid[col][row] + " ";
+//        System.out.println(output);
+//        System.out.println ("hi");
+      }
+     // System.out.println(output);
+      output += "\n";
     }
+    System.out.println ("hi");
+    System.out.println(output);
+  }
+}
+    
