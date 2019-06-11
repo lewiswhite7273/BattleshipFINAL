@@ -30,11 +30,52 @@ public class BattleShip {
                 else {
                     Grid[col][row] = 0;
                 }
-                System.out.print (col + ": col " + row + ": row " );
-                System.out.println ("1 euqals thing there: " + Grid[col][row]);
+//                System.out.print (col + ": col " + row + ": row " );
+//                System.out.println ("1 euqals thing there: " + Grid[col][row]);
             }
         }
-        row = 0;
+                   // Creates the ships
+        Dreadnaught ship1 = new Dreadnaught ();
+        Transporteur ship2 = new Transporteur ();
+        BlockadeRunner ship3 = new BlockadeRunner ();
+        StarDestroyer ship4 = new StarDestroyer ();
+        cirkalo ship5 = new cirkalo ();
+       int PlayerGrid[][] =new int[10][10];
+        Scanner place = new Scanner(System.in);
+        // Getting position row 
+        System.out.println ("You are placing Dreadnaught, what Row: \n");
+        int Rowp = place.nextInt ();
+        // getting position column
+        System.out.println ("You are placing Dreadnaught, what Column: \n");
+        // getting health per segment
+        int Column = place.nextInt ();
+        int health = ship1.GetHealth();
+        int segm = ship1.GetSegments();
+        int minihealth = health/ segm;
+        // places ship
+        PlayerGrid[Rowp][Column] = minihealth;
+        // Gets direction
+        System.out.println ("Do you want your ship to go left, right, up or down? \n");
+        String Direction = place.nextLine();
+        try {
+        }
+            catch (){
+
+            }
+                
+        if (Direction.equalsIgnoreCase("Left")){
+ 
+        }
+        else if (Direction.equalsIgnoreCase("Right")){
+            
+        }
+        else if (Direction.equalsIgnoreCase("Up")){
+            
+        }
+        else if (Direction.equalsIgnoreCase("Down")){
+            
+        }
+       row = 0;
        col = 0;
          displayGrid(Grid, row, col);
         int game = 1;
@@ -50,12 +91,6 @@ public class BattleShip {
             if (turn == 1){
             Scanner input = new Scanner(System.in);
             Ship = input.nextLine();
-                   // Creates the ships
-        Dreadnaught ship1 = new Dreadnaught ();
-        Transporteur ship2 = new Transporteur ();
-        BlockadeRunner ship3 = new BlockadeRunner ();
-        StarDestroyer ship4 = new StarDestroyer ();
-        cirkalo ship5 = new cirkalo ();
                 // Gets the ship that will fire
                if (Ship.equals(ship1.GetShip()) && use1 == 0){
                 System.out.println (ship1.GetShip() + " fire?");
@@ -181,14 +216,14 @@ public class BattleShip {
         System.out.println ("We are done all of the test");
     }
   public static void displayGrid(int Grid[][],int col,int row) {
-    String output = "a b c d e f g h i j k \n";
+String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
     for (row = 0; row < 10; row++) {
       if ((row >= 0) && (row <= 10)) {
         col = 0;
-        output += Grid[col][row] + " ";
+        output += row + " ~ ";
       }
       for (col = 0; col < 10; col++) {
-        output += Grid[col][row] + " ";
+        output += "~ ";
 //        System.out.println(output);
 //        System.out.println ("hi");
       }
@@ -198,5 +233,17 @@ public class BattleShip {
     System.out.println ("hi");
     System.out.println(output);
   }
+  public int Fire(int row){
+return 1;
 }
-    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
