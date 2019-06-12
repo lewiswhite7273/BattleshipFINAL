@@ -19,7 +19,6 @@ public class BattleShip {
         int Grid[][] =new int[10][10];
         int row;
         int col;
-        boolean noError = true;
         int i = 0;
         for (row =0; row < Grid.length; row++){
             for (col = 0; col<Grid[row].length; col++){
@@ -43,6 +42,8 @@ public class BattleShip {
         cirkalo ship5 = new cirkalo ();
        int PlayerGrid[][] = new int[10][10];
         Scanner place = new Scanner(System.in);
+        int numShip = 5;
+//        while (numShip > 0){
         // Getting position row 
         System.out.println ("You are placing Dreadnaught, what Row: \n");
         int Rowp = place.nextInt ();
@@ -55,21 +56,37 @@ public class BattleShip {
         int miniHealth = health/ segm;
         // places ship
         PlayerGrid[Rowp][Column] = miniHealth;
-        int numShip = 5;
-        // Gets direction
-        while (numShip > 0){
-        while (noError == true){
-        System.out.println ("Do you want your ship to go left, right, up or down? \n");
-        String Direction = place.nextLine();
+        System.out.println(PlayerGrid[Rowp][Column]);
+        // Gets direction 
+      System.out.println ("Do you want your ship to go left, right, up or down? \n");
+                while (numShip > 0){ 
+                      String Direction = place.nextLine();
                if (Direction.equalsIgnoreCase("Left")){
                    while (segm > 0){
-                       PlayerGrid [Rowp - segm][Column] = miniHealth;
+                       try {
+                      PlayerGrid [Rowp - segm][Column] = miniHealth;
+                       System.out.println(PlayerGrid [Rowp - segm][Column]);
                        System.out.println(segm);
-                       segm--;
+                       segm--;   
+                       }
+                       catch (ArrayIndexOutOfBoundsException x){
+                               System.out.println("a dog");
+                               }
                    }
         }
         else if (Direction.equalsIgnoreCase("Right")){
-            
+            // BIG PROBLEM, YOU& CAN NJOT SEE IT BUT IT SI THERE, ZERO NO GOOD
+            while (segm > 0){
+                                   try {
+                      PlayerGrid [Rowp + segm][Column] = miniHealth;
+                       System.out.println(PlayerGrid [Rowp + segm][Column]);
+                       System.out.println(segm);
+                       segm++;   
+                       }
+                       catch (ArrayIndexOutOfBoundsException x){
+                               System.out.println("a dog");
+                               }
+                                   }
         }
         else if (Direction.equalsIgnoreCase("Up")){
             
@@ -77,9 +94,7 @@ public class BattleShip {
         else if (Direction.equalsIgnoreCase("Down")){
     
         }  
-      //   place (Direction, miniHealth, segm, numShip, PlayerGrid);
-            noError = false;   
-        }          
+                    System.out.println("u");
         }
        row = 0;
        col = 0;
@@ -242,22 +257,6 @@ String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
   public int Fire(int row){
 return 1;
 }
-  
-//  public static void place (String Direction, int miniHealth, int segm, int numShip,int PlayerGrid[][] ){
-//      
-//      if (Direction.equalsIgnoreCase("Left")){
-//      PlayerGrid [-1][1] = 1;
-//        }
-//        else if (Direction.equalsIgnoreCase("Right")){
-//            
-//        }
-//        else if (Direction.equalsIgnoreCase("Up")){
-//            
-//        }
-//        else if (Direction.equalsIgnoreCase("Down")){
-//    
-//        }  
-//  }
 
    
         
