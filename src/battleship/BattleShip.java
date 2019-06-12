@@ -19,6 +19,7 @@ public class BattleShip {
         int Grid[][] =new int[10][10];
         int row;
         int col;
+        boolean noError = true;
         int i = 0;
         for (row =0; row < Grid.length; row++){
             for (col = 0; col<Grid[row].length; col++){
@@ -40,7 +41,7 @@ public class BattleShip {
         BlockadeRunner ship3 = new BlockadeRunner ();
         StarDestroyer ship4 = new StarDestroyer ();
         cirkalo ship5 = new cirkalo ();
-       int PlayerGrid[][] =new int[10][10];
+       int PlayerGrid[][] = new int[10][10];
         Scanner place = new Scanner(System.in);
         // Getting position row 
         System.out.println ("You are placing Dreadnaught, what Row: \n");
@@ -51,20 +52,21 @@ public class BattleShip {
         int Column = place.nextInt ();
         int health = ship1.GetHealth();
         int segm = ship1.GetSegments();
-        int minihealth = health/ segm;
+        int miniHealth = health/ segm;
         // places ship
-        PlayerGrid[Rowp][Column] = minihealth;
+        PlayerGrid[Rowp][Column] = miniHealth;
+        int numShip = 5;
         // Gets direction
+        while (numShip > 0){
+        while (noError == true){
         System.out.println ("Do you want your ship to go left, right, up or down? \n");
         String Direction = place.nextLine();
-        try {
-        }
-            catch (){
-
-            }
-                
-        if (Direction.equalsIgnoreCase("Left")){
- 
+               if (Direction.equalsIgnoreCase("Left")){
+                   while (segm > 0){
+                       PlayerGrid [Rowp - segm][Column] = miniHealth;
+                       System.out.println(segm);
+                       segm--;
+                   }
         }
         else if (Direction.equalsIgnoreCase("Right")){
             
@@ -73,7 +75,11 @@ public class BattleShip {
             
         }
         else if (Direction.equalsIgnoreCase("Down")){
-            
+    
+        }  
+      //   place (Direction, miniHealth, segm, numShip, PlayerGrid);
+            noError = false;   
+        }          
         }
        row = 0;
        col = 0;
@@ -237,6 +243,24 @@ String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
 return 1;
 }
   
+//  public static void place (String Direction, int miniHealth, int segm, int numShip,int PlayerGrid[][] ){
+//      
+//      if (Direction.equalsIgnoreCase("Left")){
+//      PlayerGrid [-1][1] = 1;
+//        }
+//        else if (Direction.equalsIgnoreCase("Right")){
+//            
+//        }
+//        else if (Direction.equalsIgnoreCase("Up")){
+//            
+//        }
+//        else if (Direction.equalsIgnoreCase("Down")){
+//    
+//        }  
+//  }
+
+   
+        
   
   
   
