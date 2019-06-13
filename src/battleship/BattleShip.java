@@ -60,41 +60,7 @@ public class BattleShip {
         // Gets direction 
       System.out.println ("Do you want your ship to go left, right, up or down? \n");
                 while (numShip > 0){ 
-                      String Direction = place.nextLine();
-               if (Direction.equalsIgnoreCase("Left")){
-                   while (segm > 0){
-                       try {
-                      PlayerGrid [Rowp - segm][Column] = miniHealth;
-                       System.out.println(PlayerGrid [Rowp - segm][Column]);
-                       System.out.println(segm);
-                       segm--;   
-                       }
-                       catch (ArrayIndexOutOfBoundsException x){
-                               System.out.println("a dog");
-                               }
-                   }
-        }
-        else if (Direction.equalsIgnoreCase("Right")){
-            // BIG PROBLEM, YOU& CAN NJOT SEE IT BUT IT SI THERE, ZERO NO GOOD
-            while (segm > 0){
-                                   try {
-                      PlayerGrid [Rowp + segm][Column] = miniHealth;
-                       System.out.println(PlayerGrid [Rowp + segm][Column]);
-                       System.out.println(segm);
-                       segm++;   
-                       }
-                       catch (ArrayIndexOutOfBoundsException x){
-                               System.out.println("a dog");
-                               }
-                                   }
-        }
-        else if (Direction.equalsIgnoreCase("Up")){
-            
-        }
-        else if (Direction.equalsIgnoreCase("Down")){
-    
-        }  
-                    System.out.println("u");
+                  String Direction = place.nextLine();
         }
        row = 0;
        col = 0;
@@ -257,6 +223,66 @@ String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
   public int Fire(int row){
 return 1;
 }
+  public static void placeShip (int Rowp, int segm, int Column, int miniHealth, int PlayerGrid[][], String Direction, int a){
+               if (Direction.equalsIgnoreCase("Left")){
+                   while (segm > 0){
+                       try {
+                      PlayerGrid [Rowp - segm][Column] = miniHealth;
+                      System.out.println ((Rowp - segm) +" " + Column );
+                       System.out.println(PlayerGrid [Rowp - segm][Column]);
+                       System.out.println(segm);
+                       segm--;   
+                       }
+                       catch (ArrayIndexOutOfBoundsException x){
+                               System.out.println("a dog");
+                               }
+                   }
+        }
+        else if (Direction.equalsIgnoreCase("Right")){
+                   System.out.println(segm);
+            while (segm < 10){
+                                   try {
+                      PlayerGrid [Rowp + segm][Column] = miniHealth;
+                      System.out.println ((Rowp + segm) +" " + Column );
+                       System.out.println(PlayerGrid [Rowp + segm][Column]);
+                       System.out.println(segm);
+                       segm++;   
+                       }
+                       catch (ArrayIndexOutOfBoundsException x){
+                               System.out.println("a dog");
+                               }
+                                   }
+        }
+        else if (Direction.equalsIgnoreCase("Up")){
+            while (segm < (segm + a)){
+                                   try {
+                      PlayerGrid [Rowp][Column- segm] = miniHealth;
+                      System.out.println (Rowp + " " + (Column - segm));
+                       System.out.println(PlayerGrid [Rowp][Column- segm]);
+                       System.out.println(segm);
+                       segm++;   
+                       }
+                       catch (ArrayIndexOutOfBoundsException x){
+                               System.out.println("a dog");
+                               }
+                                   } 
+        }
+        else if (Direction.equalsIgnoreCase("Down")){
+             while (segm > 0){
+                                   try {
+                      PlayerGrid [Rowp][Column + segm] = miniHealth;
+                      System.out.println (Rowp + " " + (Column + segm));
+                       System.out.println(PlayerGrid [Rowp][Column+ segm]);
+                       System.out.println(segm);
+                       segm--;   
+                       }
+                       catch (ArrayIndexOutOfBoundsException x){
+                               System.out.println("a dog");
+                               }
+                                   } 
+        }  
+                    System.out.println("u");
+  }
 
    
         
