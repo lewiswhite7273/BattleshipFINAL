@@ -20,6 +20,11 @@ public class BattleShip {
         int row;
         int col;
         int i = 0;
+        
+        
+        
+        
+        
         for (row =0; row < Grid.length; row++){
             for (col = 0; col<Grid[row].length; col++){
                 int num = (int) (Math.random() * 6);
@@ -34,6 +39,11 @@ public class BattleShip {
 //                System.out.println ("1 euqals thing there: " + Grid[col][row]);
             }
         }
+        
+        
+        // plcae the player ship
+        
+        
                    // Creates the ships
         Dreadnaught ship1 = new Dreadnaught ();
         Transporteur ship2 = new Transporteur ();
@@ -41,9 +51,14 @@ public class BattleShip {
         StarDestroyer ship4 = new StarDestroyer ();
         cirkalo ship5 = new cirkalo ();
        int PlayerGrid[][] = new int[10][10];
+       for (row =0; row < PlayerGrid.length; row++){
+            for (col = 0; col<PlayerGrid[row].length; col++){
+                    Grid[col][row] = 0;
+                }
+                
+                
         Scanner place = new Scanner(System.in);
         int numShip = 5;
-//        while (numShip > 0){
         // Getting position row 
         System.out.println ("You are placing Dreadnaught, what Row: \n");
         int Rowp = place.nextInt ();
@@ -54,14 +69,20 @@ public class BattleShip {
         int health = ship1.GetHealth();
         int segm = ship1.GetSegments();
         int miniHealth = health/ segm;
+        int a = ship1.GetSegments() -1;
         // places ship
-        PlayerGrid[Rowp][Column] = miniHealth;
-        System.out.println(PlayerGrid[Rowp][Column]);
-        // Gets direction 
-      System.out.println ("Do you want your ship to go left, right, up or down? \n");
-                while (numShip > 0){ 
-                  String Direction = place.nextLine();
-        }
+                while (numShip > 0){ ;
+                  placeShip (PlayerGrid, Rowp, Column, segm, miniHealth);
+                          
+                }
+                
+                
+                
+                
+                
+                
+                
+                
        row = 0;
        col = 0;
          displayGrid(Grid, row, col);
@@ -201,6 +222,7 @@ public class BattleShip {
             } 
         }
         System.out.println ("We are done all of the test");
+       }
     }
   public static void displayGrid(int Grid[][],int col,int row) {
 String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
@@ -223,51 +245,22 @@ String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
   public int Fire(int row){
 return 1;
 }
-  public static void placeShip (int Rowp, int segm, int Column, int miniHealth, int PlayerGrid[][], String Direction, int a){
-               if (Direction.equalsIgnoreCase("Left")){
-                   while (segm > 0){
-                       try {
-                      PlayerGrid [Rowp - segm][Column] = miniHealth;
-                      System.out.println ((Rowp - segm) +" " + Column );
-                       System.out.println(PlayerGrid [Rowp - segm][Column]);
-                       System.out.println(segm);
-                       segm--;   
-                       }
-                       catch (ArrayIndexOutOfBoundsException x){
-                               System.out.println("a dog");
-                               }
-                   }
-        }
-        else if (Direction.equalsIgnoreCase("Right")){
-                   System.out.println(segm);
-            while (segm < 10){
-                                   try {
-                      PlayerGrid [Rowp + segm][Column] = miniHealth;
-                      System.out.println ((Rowp + segm) +" " + Column );
-                       System.out.println(PlayerGrid [Rowp + segm][Column]);
-                       System.out.println(segm);
-                       segm++;   
-                       }
-                       catch (ArrayIndexOutOfBoundsException x){
-                               System.out.println("a dog");
-                               }
-                                   }
-        }
-        else if (Direction.equalsIgnoreCase("Up")){
-            while (segm < (segm + a)){
-                                   try {
-                      PlayerGrid [Rowp][Column- segm] = miniHealth;
-                      System.out.println (Rowp + " " + (Column - segm));
-                       System.out.println(PlayerGrid [Rowp][Column- segm]);
-                       System.out.println(segm);
-                       segm++;   
-                       }
-                       catch (ArrayIndexOutOfBoundsException x){
-                               System.out.println("a dog");
-                               }
-                                   } 
-        }
-        else if (Direction.equalsIgnoreCase("Down")){
+  public static void placeShip (int PlayerGrid[][], int Rowp, int Column, int segm, int miniHealth){
+             if (PlayerGrid[Rowp][Column] != 0){
+                 System.out.print ("there is a ship there, *facepalm*");
+             } 
+            if (PlayerGrid[Rowp - 1][Column] != 0){
+                 System.out.print ("there is a ship there, *facepalm*");
+             }  
+            if (PlayerGrid[Rowp + 1][Column] != 0){
+                 System.out.print ("there is a ship there, *facepalm*");
+             } 
+            if (PlayerGrid[Rowp][Column - 1] != 0){
+                 System.out.print ("there is a ship there, *facepalm*");
+             } 
+            if (PlayerGrid[Rowp][Column + 1] != 0){
+                 System.out.print ("there is a ship there, *facepalm*");
+             } 
              while (segm > 0){
                                    try {
                       PlayerGrid [Rowp][Column + segm] = miniHealth;
@@ -279,9 +272,7 @@ return 1;
                        catch (ArrayIndexOutOfBoundsException x){
                                System.out.println("a dog");
                                }
-                                   } 
-        }  
-                    System.out.println("u");
+             }
   }
 
    
