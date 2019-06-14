@@ -20,7 +20,7 @@ public class BattleShip {
         int Grid[][] =new int[10][10];
         int row;
         int col;
-        int i = 0;
+        int i = 15;
         
         
         // makes the grid for the A.I.
@@ -30,8 +30,7 @@ public class BattleShip {
             for (col = 0; col<Grid[row].length; col++){
                 int num = (int) (Math.random() * 6);
                 if (num == 4){
-                    Grid[col][row] = 1;
-                    i++;
+                    Grid[col][row] = 30;
                 }
                 else {
                     Grid[col][row] = 0;
@@ -274,8 +273,8 @@ System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
              System.out.println (use5);
             }
             else if (turn == 2 && i != 0){
-       row = (int) (Math.random() * 10);
-       col = (int) (Math.random() *10);
+                Rowp = (int) (Math.random() * 9);
+                Column = (int) (Math.random() * 9);;
       System.out.println (i);
           System.out.println ("Go");
           if (PlayerGrid[Rowp][Column] != 0){
@@ -360,7 +359,7 @@ return 1;
   
   
   
-  
+ 
   
   
 }
