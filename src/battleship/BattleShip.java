@@ -6,6 +6,7 @@
 
 package battleship;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -47,46 +48,76 @@ public class BattleShip {
                    // Creates the ships
         Dreadnaught ship1 = new Dreadnaught ();
         Transporteur ship2 = new Transporteur ();
-        BlockadeRunner ship5 = new BlockadeRunner ();
-        StarDestroyer ship4 = new StarDestroyer ();
         cirkalo ship3 = new cirkalo ();
+        StarDestroyer ship4 = new StarDestroyer ();
+        BlockadeRunner ship5 = new BlockadeRunner();
+        Ship ship6 = new Ship ();
        int PlayerGrid[][] = new int[10][10];
        for (row =0; row < PlayerGrid.length; row++){
             for (col = 0; col<PlayerGrid[row].length; col++){
-                    Grid[col][row] = 0;
+                    PlayerGrid[col][row] = 0;
                 }
-                
-                
+       }
         Scanner place = new Scanner(System.in);
-        int numShip = 5;
         // Getting position row 
-        System.out.println ("The ship will build downwards so understand that");
-        System.out.println ("You are placing head of Dreadnaught, what Row, : \n");
-        int Rowp = place.nextInt ();
-        // getting position column
-        System.out.println ("You are placing head of Dreadnaught, what Column: \n");
+
         // getting health per segment
-        int Column = place.nextInt ();
-        int health = ship1.GetHealth();
-        int segm = ship1.GetSegments();
-        int miniHealth = health/ segm;
-        int a = ship1.GetSegments() -1;
+        int Column = 1000;
+        int health= 987;
+        int segm = 6978;
+        int miniHealth =97654;
+        int a =97645;
+        int Rowp = place.nextInt ();
         // places ship
-                while (numShip > 0){ 
-                  placeShip (PlayerGrid, Rowp, Column, segm, miniHealth);
+                for (int numShip = 5; numShip > 0;){
+                  if (numShip == 5){
+                      
+                  }
                   if (numShip == 5){
         System.out.println ("The ship will build downwards so understand that");
+        System.out.println ("You are placing head of Dreadnaught, what Row, : \n");
+        Rowp = place.nextInt (); 
+        System.out.println ("You are placing head of Dreadnaught, what Column: \n");
+        Column = place.nextInt ();
+        health = ship1.GetHealth();
+        segm = ship1.GetSegments();
+        miniHealth = health/ segm;
+        a = ship1.GetSegments() -1;
+                  }
+        if(numShip == 4){
+       System.out.println ("The ship will build downwards so understand that");
         System.out.println ("You are placing head of Transporteur, what Row, : \n");
         Rowp = place.nextInt (); 
         System.out.println ("You are placing head of Transporteur, what Column: \n");
         Column = place.nextInt ();
         health = ship2.GetHealth();
         segm = ship2.GetSegments();
-        miniHealth = health/ segm;
-        a = ship2.GetSegments() -1;
-        
+       miniHealth = health/ segm;
+        a = ship2.GetSegments() -1;    
+                  }
+        if (numShip == 3){
+        System.out.println ("The ship will build downwards so understand that");
+        System.out.println ("You are placing head of Cirkalo, what Row, : \n");
+        Rowp = place.nextInt (); 
+        System.out.println ("You are placing head of Cirkalo, what Column: \n");
+        Column = place.nextInt ();
+        health = ship3.GetHealth();
+        segm = ship3.GetSegments();
+       miniHealth = health/ segm;
+        a = ship3.GetSegments() -1;  
                   }   
                   if (numShip == 2){
+        System.out.println ("The ship will build downwards so understand that");
+        System.out.println ("You are placing head of StarDestroyer, what Row, : \n");
+        Rowp = place.nextInt (); 
+        System.out.println ("You are placing head of StarDestroyer, what Column: \n");
+        Column = place.nextInt ();
+        health = ship4.GetHealth();
+        segm = ship4.GetSegments();
+        miniHealth = health/ segm;
+        a = ship4.GetSegments() -1;    
+                  }
+                  if (numShip == 1){
         System.out.println ("The ship will build downwards so understand that");
         System.out.println ("You are placing head of BlocadeRunner, what Row, : \n");
         Rowp = place.nextInt (); 
@@ -97,55 +128,32 @@ public class BattleShip {
         miniHealth = health/ segm;
         a = ship5.GetSegments() -1;    
                   }
-                  if (numShip == 3){
-        System.out.println ("The ship will build downwards so understand that");
-        System.out.println ("You are placing head of StarDestroyer, what Row, : \n");
-        Rowp = place.nextInt (); 
-        System.out.println ("You are placing head of StarDestroyer, what Column: \n");
-        Column = place.nextInt ();
-        health = ship4.GetHealth();
-        segm = ship4.GetSegments();
-       miniHealth = health/ segm;
-        a = ship4.GetSegments() -1;  
-                  }
-                  if(numShip == 4){
-       System.out.println ("The ship will build downwards so understand that");
-        System.out.println ("You are placing head of Cirkalo, what Row, : \n");
-        Rowp = place.nextInt (); 
-        System.out.println ("You are placing head of Cirkalo, what Column: \n");
-        Column = place.nextInt ();
-        health = ship3.GetHealth();
-        segm = ship3.GetSegments();
-       miniHealth = health/ segm;
-        a = ship3.GetSegments() -1;    
-                  }
+                  placeShip (PlayerGrid, Rowp, Column, segm, miniHealth);
                   numShip --;
                 }
                 
-    String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
-    for (Rowp = 0; Rowp < 10; Rowp++) {
-      if ((Rowp >= 0) && (Rowp <= 10)) {
-        Column = 0;
-        output += Rowp + PlayerGrid [Column][Rowp];
-      }
-      for (Column = 0; Column < 10; Column++) {
-        output += PlayerGrid [Column][Rowp];
-//        System.out.println(output);
-//        System.out.println ("hi");
-      }
-     // System.out.println(output);
-      output += "\n";
-    }
-    System.out.println ("hi");
-    System.out.println(output);    
+    String output = "0 1 2 3 4 5 6 7 8 9 \n";
+    Column = 0;
+    Rowp = 0;
+   for (Column =0; Column < 10; Column++){
+       if ((Column >= 0) && (Column <= 10)){
+           Rowp = 0;
+           output += Column + " ";
+       }
+       for (Rowp = 0; Rowp < 10; Rowp++){
+           output += PlayerGrid[Rowp][Column] + " ";
+       }
+       output += "\n";
+   } 
+           System.out.println("hi");
+           System.out.println(output);
+           JOptionPane.showMessageDialog(null, "User Grid \n" + output);  
                 
-                
-                
-                
-                
-                
+System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
        row = 0;
        col = 0;
+       Rowp = 0;
+       Column = 0;
          displayGrid(Grid, row, col);
         int game = 1;
         int turn =1;
@@ -270,12 +278,13 @@ public class BattleShip {
        col = (int) (Math.random() *10);
       System.out.println (i);
           System.out.println ("Go");
-          if (Grid[col][row] == 1){
+          if (PlayerGrid[Rowp][Column] != 0){
               System.out.println ("Found One");
-             Grid[col][row] = 2;
+              int damage = ship6.getDamage();
+             PlayerGrid[Rowp][Column] = (PlayerGrid[Rowp][Column] - damage);
              i = i-1;
           }
-          else if (Grid[col][row] == 0){
+          else if (PlayerGrid[Rowp][Column] == 0){
         System.out.println ("Miss");
     } 
                 System.out.println (i);
@@ -284,13 +293,13 @@ public class BattleShip {
         }
         System.out.println ("We are done all of the test");
        }
-    }
+    
   public static void displayGrid(int Grid[][],int col,int row) {
 String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
     for (row = 0; row < 10; row++) {
       if ((row >= 0) && (row <= 10)) {
         col = 0;
-        output += row + " ~ ";
+        output += row + " ";
       }
       for (col = 0; col < 10; col++) {
         output += "~ ";
@@ -302,6 +311,7 @@ String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
     }
     System.out.println ("hi");
     System.out.println(output);
+    
   }
   public int Fire(int row){
 return 1;
