@@ -47,9 +47,9 @@ public class BattleShip {
                    // Creates the ships
         Dreadnaught ship1 = new Dreadnaught ();
         Transporteur ship2 = new Transporteur ();
-        BlockadeRunner ship3 = new BlockadeRunner ();
+        BlockadeRunner ship5 = new BlockadeRunner ();
         StarDestroyer ship4 = new StarDestroyer ();
-        cirkalo ship5 = new cirkalo ();
+        cirkalo ship3 = new cirkalo ();
        int PlayerGrid[][] = new int[10][10];
        for (row =0; row < PlayerGrid.length; row++){
             for (col = 0; col<PlayerGrid[row].length; col++){
@@ -60,10 +60,11 @@ public class BattleShip {
         Scanner place = new Scanner(System.in);
         int numShip = 5;
         // Getting position row 
-        System.out.println ("You are placing Dreadnaught, what Row: \n");
+        System.out.println ("The ship will build downwards so understand that");
+        System.out.println ("You are placing head of Dreadnaught, what Row, : \n");
         int Rowp = place.nextInt ();
         // getting position column
-        System.out.println ("You are placing Dreadnaught, what Column: \n");
+        System.out.println ("You are placing head of Dreadnaught, what Column: \n");
         // getting health per segment
         int Column = place.nextInt ();
         int health = ship1.GetHealth();
@@ -73,10 +74,70 @@ public class BattleShip {
         // places ship
                 while (numShip > 0){ 
                   placeShip (PlayerGrid, Rowp, Column, segm, miniHealth);
-                          numShip --;
+                  if (numShip == 5){
+        System.out.println ("The ship will build downwards so understand that");
+        System.out.println ("You are placing head of Transporteur, what Row, : \n");
+        Rowp = place.nextInt (); 
+        System.out.println ("You are placing head of Transporteur, what Column: \n");
+        Column = place.nextInt ();
+        health = ship2.GetHealth();
+        segm = ship2.GetSegments();
+        miniHealth = health/ segm;
+        a = ship2.GetSegments() -1;
+        
+                  }   
+                  if (numShip == 2){
+        System.out.println ("The ship will build downwards so understand that");
+        System.out.println ("You are placing head of BlocadeRunner, what Row, : \n");
+        Rowp = place.nextInt (); 
+        System.out.println ("You are placing head of BlockadeRunner, what Column: \n");
+        Column = place.nextInt ();
+        health = ship5.GetHealth();
+        segm = ship5.GetSegments();
+        miniHealth = health/ segm;
+        a = ship5.GetSegments() -1;    
+                  }
+                  if (numShip == 3){
+        System.out.println ("The ship will build downwards so understand that");
+        System.out.println ("You are placing head of StarDestroyer, what Row, : \n");
+        Rowp = place.nextInt (); 
+        System.out.println ("You are placing head of StarDestroyer, what Column: \n");
+        Column = place.nextInt ();
+        health = ship4.GetHealth();
+        segm = ship4.GetSegments();
+       miniHealth = health/ segm;
+        a = ship4.GetSegments() -1;  
+                  }
+                  if(numShip == 4){
+       System.out.println ("The ship will build downwards so understand that");
+        System.out.println ("You are placing head of Cirkalo, what Row, : \n");
+        Rowp = place.nextInt (); 
+        System.out.println ("You are placing head of Cirkalo, what Column: \n");
+        Column = place.nextInt ();
+        health = ship3.GetHealth();
+        segm = ship3.GetSegments();
+       miniHealth = health/ segm;
+        a = ship3.GetSegments() -1;    
+                  }
+                  numShip --;
                 }
                 
-                
+    String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
+    for (Rowp = 0; Rowp < 10; Rowp++) {
+      if ((Rowp >= 0) && (Rowp <= 10)) {
+        Column = 0;
+        output += Rowp + PlayerGrid [Column][Rowp];
+      }
+      for (Column = 0; Column < 10; Column++) {
+        output += PlayerGrid [Column][Rowp];
+//        System.out.println(output);
+//        System.out.println ("hi");
+      }
+     // System.out.println(output);
+      output += "\n";
+    }
+    System.out.println ("hi");
+    System.out.println(output);    
                 
                 
                 
@@ -195,7 +256,7 @@ public class BattleShip {
                     use3 = 0;
                     use4 = 0;
                     use5 = 0;
-                    System.out.println ("Good wor, you mader it to where you are supposed to ");
+                    System.out.println ("Good work, you mader it to where you are supposed to ");
                 }
              turn =2;
              System.out.println (use1);
@@ -256,8 +317,7 @@ return 1;
                  System.out.println ("there is a ship there, *facepalm*");
                  segm = -1;
              }    
-         }
-         catch (ArrayIndexOutOfBoundsException x){
+         }catch (ArrayIndexOutOfBoundsException x){
              System.out.println ("It is out of bounds above so there can be no ship there");
          }
          try{
@@ -285,7 +345,6 @@ return 1;
  
    
         
-  
   
   
   
