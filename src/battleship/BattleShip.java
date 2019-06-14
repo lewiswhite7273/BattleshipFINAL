@@ -22,7 +22,7 @@ public class BattleShip {
         int i = 0;
         
         
-        
+        // makes the grid for the A.I.
         
         
         for (row =0; row < Grid.length; row++){
@@ -71,9 +71,9 @@ public class BattleShip {
         int miniHealth = health/ segm;
         int a = ship1.GetSegments() -1;
         // places ship
-                while (numShip > 0){ ;
+                while (numShip > 0){ 
                   placeShip (PlayerGrid, Rowp, Column, segm, miniHealth);
-                          
+                          numShip --;
                 }
                 
                 
@@ -246,21 +246,28 @@ String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
 return 1;
 }
   public static void placeShip (int PlayerGrid[][], int Rowp, int Column, int segm, int miniHealth){
-             if (PlayerGrid[Rowp][Column] != 0){
+      //Boolean noError = true;
+         if (PlayerGrid[Rowp][Column] != 0){
                  System.out.print ("there is a ship there, *facepalm*");
+                 segm = -1;
              } 
-            if (PlayerGrid[Rowp - 1][Column] != 0){
-                 System.out.print ("there is a ship there, *facepalm*");
-             }  
-            if (PlayerGrid[Rowp + 1][Column] != 0){
-                 System.out.print ("there is a ship there, *facepalm*");
-             } 
-            if (PlayerGrid[Rowp][Column - 1] != 0){
-                 System.out.print ("there is a ship there, *facepalm*");
-             } 
-            if (PlayerGrid[Rowp][Column + 1] != 0){
-                 System.out.print ("there is a ship there, *facepalm*");
-             } 
+         try {
+          if (PlayerGrid[Rowp][Column - 1] != 0){
+                 System.out.println ("there is a ship there, *facepalm*");
+                 segm = -1;
+             }    
+         }
+         catch (ArrayIndexOutOfBoundsException x){
+             System.out.println ("It is out of bounds above so there can be no ship there");
+         }
+         try{
+         if (PlayerGrid[Rowp][Column + 1] != 0){
+                 System.out.println ("there is a ship there, *facepalm*");
+                 segm = -1;
+             }     
+         }catch (ArrayIndexOutOfBoundsException x){
+             System.out.println ("It is out of bounds below so there can be no ship there");
+         }
              while (segm > 0){
                                    try {
                       PlayerGrid [Rowp][Column + segm] = miniHealth;
@@ -275,6 +282,7 @@ return 1;
              }
   }
 
+ 
    
         
   
