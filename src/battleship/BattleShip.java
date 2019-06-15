@@ -31,6 +31,8 @@ public class BattleShip {
                 int num = (int) (Math.random() * 6);
                 if (num == 4){
                     Grid[col][row] = 30;
+                    System.out.println("col " + col);
+                    System.out.println("row " + row);
                 }
                 else {
                     Grid[col][row] = 0;
