@@ -174,17 +174,30 @@ System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
                 for (int x = 0; x < ship1.GetFire();){
                 String fire;
                 fire = input.nextLine();
+                    System.out.println("Where do you want to fire, Column:");
+                    int fireCol = input.nextInt();
+                    System.out.println ("Where do you want to fire, Row:");
+                    int fireRow = input.nextInt();
+                    
                 // checks if the user fires
-                    if ("fire".equals(fire)){
+                if (Grid[fireRow][fireCol] == 0){
+                    System.out.println("you missed");  
+                }
+                else {
+                  if ("fire".equals(fire)){
                         // Checks if the ship crits or not
                   if (ship1.GetCrit() == 3){
                         System.out.println ("Super Boom");
+                       int damage =  ship1.GetDamage() * 2;
+                       Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - damage);
                     }  
                   else {
                       System.out.println("normal Boom");
-                  }
-                use1 = 1;
+                  }   
                 }
+                use1 = 1; 
+                }
+                
                     // makes it fire once
                     x++;
                 } 
@@ -194,13 +207,22 @@ System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
                 System.out.println (ship2.GetShip() + " fire?");
                 String fire;
                 fire = input.nextLine();
-                    if ("fire".equals(fire)){
+                System.out.println("Where do you want to fire, Column:");
+                    int fireCol = input.nextInt();
+                    System.out.println ("Where do you want to fire, Row:");
+                    int fireRow = input.nextInt();
+                     if (Grid[fireRow][fireCol] == 0){
+                    System.out.println("you missed");  
+                }
+                     else{
+                     if ("fire".equals(fire)){
                   if (ship2.GetCrit() == 3){
                         System.out.println ("Super Boom");
                     }  
                   else {
                       System.out.println("normal Boom");
-                  }
+                  }    
+                     }
                  use2 = 1;
                 }
                     x++;
@@ -211,13 +233,22 @@ System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
                 for (int x = 0; x < ship3.GetFire();){
                 String fire;
                 fire = input.nextLine();
-                    if ("fire".equals(fire)){
+                System.out.println("Where do you want to fire, Column:");
+                    int fireCol = input.nextInt();
+                    System.out.println ("Where do you want to fire, Row:");
+                    int fireRow = input.nextInt();
+                    if (Grid[fireRow][fireCol] == 0){
+                    System.out.println("you missed");  
+                }
+                    else {
+                     if ("fire".equals(fire)){
                   if (ship3.GetCrit() == 3){
                         System.out.println ("Super Boom");
                     }  
                   else {
                       System.out.println("normal Boom");
-                  }
+                  }   
+                    }
                   use3 = 1;
                 }
                     x++;
@@ -228,13 +259,23 @@ System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
                 for (int x = 0; x < ship4.GetFire();){
                 String fire;
                 fire = input.nextLine();
-                    if ("fire".equals(fire)){
+                System.out.println("Where do you want to fire, Column:");
+                    int fireCol = input.nextInt();
+                    System.out.println ("Where do you want to fire, Row:");
+                    int fireRow = input.nextInt();
+                    if (Grid[fireRow][fireCol] == 0){
+                    System.out.println("you missed");  
+                }
+                    else {
+                       if ("fire".equals(fire)){
                   if (ship4.GetCrit() == 3){
                         System.out.println ("Super Boom");
                     }  
                   else {
                       System.out.println("normal Boom");
-                  }
+                  } 
+                    }
+                    
                  use4 = 1;
                 }
                     x++;
@@ -245,13 +286,24 @@ System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
                 for (int x = 0; x < ship5.GetFire();){
                 String fire;
                 fire = input.nextLine();
-                    if ("fire".equals(fire)){
+                System.out.println("Where do you want to fire, Column:");
+                    int fireCol = input.nextInt();
+                    System.out.println ("Where do you want to fire, Row:");
+                    int fireRow = input.nextInt();
+                    if (Grid[fireRow][fireCol] == 0){
+                    System.out.println("you missed");  
+                }
+                    else {
+                     if ("fire".equals(fire)){
                   if (ship5.GetCrit() == 3){
                         System.out.println ("Super Boom");
                     }  
                   else {
                       System.out.println("normal Boom");
-                  }
+                  }   
+                    }
+                    
+                    
                  use5 = 1;
                 }
                     x++;
