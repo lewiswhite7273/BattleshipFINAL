@@ -13,10 +13,12 @@ package battleship;
 public class Ship {
     private int fire;
     private int crit;
+    private int damage;
     
     public Ship(){
     fire = 1;
     crit = (int) (Math.random() * 6);
+    damage = 30000;
 }
     public int GetFire(){
         return fire;
@@ -24,5 +26,9 @@ public class Ship {
     public int GetCrit(){
         crit = (int) (Math.random() * 6);
         return crit;
+    }
+
+    int getDamage() {
+       return damage;
     }
 }
