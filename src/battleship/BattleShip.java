@@ -195,6 +195,7 @@ System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
                     }  
                   else {
                       System.out.println("normal Boom");
+                      Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - ship1.getDamage());
                   }   
                 }
                 use1 = 1; 
@@ -207,7 +208,7 @@ System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
                if (Ship.equals(ship2.GetShip()) && use2 == 0){
                 for (int x = 0; x < ship2.GetFire();){
                 System.out.println (ship2.GetShip() + " fire?");
-                String fire;
+                String fire = "";
                 fire = input.nextLine();
                 System.out.println("Where do you want to fire, Column:");
                     int fireCol = input.nextInt();
@@ -220,9 +221,11 @@ System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
                      if ("fire".equals(fire)){
                   if (ship2.GetCrit() == 3){
                         System.out.println ("Super Boom");
+                        Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - (ship2.getDamage()*2));
                     }  
                   else {
                       System.out.println("normal Boom");
+                      Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - ship2.getDamage());
                   }    
                      }
                  use2 = 1;
@@ -246,9 +249,11 @@ System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
                      if ("fire".equals(fire)){
                   if (ship3.GetCrit() == 3){
                         System.out.println ("Super Boom");
+                        Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - (ship3.getDamage()*2));
                     }  
                   else {
                       System.out.println("normal Boom");
+                      Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - ship3.getDamage());
                   }   
                     }
                   use3 = 1;
@@ -272,9 +277,11 @@ System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
                        if ("fire".equals(fire)){
                   if (ship4.GetCrit() == 3){
                         System.out.println ("Super Boom");
+                        Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - (ship4.getDamage()*2));
                     }  
                   else {
                       System.out.println("normal Boom");
+                      Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - ship4.getDamage());
                   } 
                     }
                     
@@ -299,9 +306,11 @@ System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
                      if ("fire".equals(fire)){
                   if (ship5.GetCrit() == 3){
                         System.out.println ("Super Boom");
+                        Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - (ship5.getDamage()*2));
                     }  
                   else {
                       System.out.println("normal Boom");
+                      Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - ship5.getDamage());
                   }   
                     }
                     
@@ -413,7 +422,5 @@ return 1;
   
   
   
- 
-  
-  
+
 }
