@@ -31,8 +31,8 @@ public class BattleShip {
                 int num = (int) (Math.random() * 6);
                 if (num == 4){
                     Grid[col][row] = 30;
-                    System.out.println("col " + col);
-                    System.out.println("row " + row);
+//                    System.out.println("col " + col);
+//                    System.out.println("row " + row);
                 }
                 else {
                     Grid[col][row] = 0;
@@ -146,11 +146,11 @@ public class BattleShip {
        }
        output += "\n";
    } 
-           System.out.println("hi");
+//           System.out.println("hi");
            System.out.println(output);
            JOptionPane.showMessageDialog(null, "User Grid \n" + output);  
                 
-System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
+//System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
        row = 0;
        col = 0;
        Rowp = 0;
