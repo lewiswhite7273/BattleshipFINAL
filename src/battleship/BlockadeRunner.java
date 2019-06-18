@@ -34,4 +34,10 @@ public class BlockadeRunner extends Ship{
          public String GetShip (){
            return Ship;
        }
+      public int GetHealth (){
+        return health;
+       }
+        public int GetSegments (){
+        return segments;
+       }
 }
