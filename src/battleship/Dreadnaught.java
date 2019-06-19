@@ -23,16 +23,16 @@ public class Dreadnaught extends Ship{
         segments = 5;
         Ship = "Dreadnaught";
     }
-    public int GetDamage(){
+    public int getDamage(){
         return damage;
     }
-    public String GetShip (){
+    public String getShip (){
         return Ship;
        }
-        public int GetHealth (){
+        public int getHealth (){
         return health;
        }
-        public int GetSegments (){
+        public int getSegments (){
         return segments;
        }
 }

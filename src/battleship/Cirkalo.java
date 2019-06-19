@@ -9,32 +9,26 @@ package battleship;
 /**
  *
  * @author anhen3335
- */ 
-public class BlockadeRunner extends Ship{
+ */
+public class Cirkalo extends Ship{
     private int health;
     private int segments;
     private int damage; 
-    private int crit;
     private String Ship;
     
-    public BlockadeRunner(){
-      crit = (int) (Math.random() * 3);
-      health = 60;
-      damage = 10;
-      segments = 1;
-      Ship = "BlockadeRunner";
-
+    public Cirkalo (){
+        health = 150;
+        segments = 3;
+        damage = 25;
+        Ship = "Cirkalo";
     }
-       public int getCrit (){
-           return crit;
-       }
     public int getDamage(){
-        return damage;
+    return damage;
     }
-         public String getShip (){
-           return Ship;
+    public String getShip (){
+        return Ship;
        }
-      public int getHealth (){
+            public int getHealth (){
         return health;
        }
         public int getSegments (){

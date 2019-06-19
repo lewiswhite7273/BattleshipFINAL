@@ -38,18 +38,18 @@ public class BattleShip {
                     Grid[col][row] = 0;
                 }
 //                System.out.print (col + ": col " + row + ": row " );
-//                System.out.println ("1 euqals thing there: " + Grid[col][row]);
+//                System.out.println ("1 equals thing there: " + Grid[col][row]);
             }
         }
         
         
-        // plcae the player ship
+        // place the player ship
         
         
-                   // Creates the ships
+                   // Creates the ships from the classes
         Dreadnaught ship1 = new Dreadnaught ();
         Transporteur ship2 = new Transporteur ();
-        cirkalo ship3 = new cirkalo ();
+        Cirkalo ship3 = new Cirkalo ();
         StarDestroyer ship4 = new StarDestroyer ();
         BlockadeRunner ship5 = new BlockadeRunner();
         Ship ship6 = new Ship ();
@@ -59,123 +59,144 @@ public class BattleShip {
                     PlayerGrid[col][row] = 0;
                 }
        }
+        System.out.println("Welcome to: Ultimate Battleship Simulator Extreme Warmachine 9001 XXX!!!\n"
+                + "Please enter any number to continue.");
         Scanner place = new Scanner(System.in);
-        // Getting position row 
+        // Getting position of column and row 
 
         // getting health per segment
-        int Column = 1000;
-        int health= 987;
-        int segm = 6978;
-        int miniHealth =97654;
-        int a =97645;
-        int Rowp = place.nextInt ();
-        // places ship
+        int column = 1;
+        int health = 1;
+        int segm = 1;
+        int miniHealth = 1;
+        int a;
+        int rowp = place.nextInt ();
+ 
+        // places ship in specified spot
+         displayGrid(column , row);
                 for (int numShip = 5; numShip > 0;){
                   if (numShip == 5){
                       
                   }
                   if (numShip == 5){
-        System.out.println ("The ship will build downwards so understand that");
+        System.out.println ("IMPORTANT: THE SHIP WILL BUILD DOWNWARDS, SO IT PLACES HEAD-TO-TAIL");
         System.out.println ("You are placing head of Dreadnaught, what Row, : \n");
-        Rowp = place.nextInt (); 
+        rowp = place.nextInt (); 
         System.out.println ("You are placing head of Dreadnaught, what Column: \n");
-        Column = place.nextInt ();
-        health = ship1.GetHealth();
-        segm = ship1.GetSegments();
+        column = place.nextInt ();
+        health = ship1.getHealth();
+        segm = ship1.getSegments();
         miniHealth = health/ segm;
-        a = ship1.GetSegments() -1;
+        a = ship1.getSegments() -1;
                   }
         if(numShip == 4){
        System.out.println ("The ship will build downwards so understand that");
         System.out.println ("You are placing head of Transporteur, what Row, : \n");
-        Rowp = place.nextInt (); 
+        rowp = place.nextInt (); 
         System.out.println ("You are placing head of Transporteur, what Column: \n");
-        Column = place.nextInt ();
-        health = ship2.GetHealth();
-        segm = ship2.GetSegments();
+       column = place.nextInt ();
+        health = ship2.getHealth();
+        segm = ship2.getSegments();
        miniHealth = health/ segm;
-        a = ship2.GetSegments() -1;    
+        a = ship2.getSegments() -1;    
                   }
         if (numShip == 3){
         System.out.println ("The ship will build downwards so understand that");
         System.out.println ("You are placing head of Cirkalo, what Row, : \n");
-        Rowp = place.nextInt (); 
+        rowp = place.nextInt (); 
         System.out.println ("You are placing head of Cirkalo, what Column: \n");
-        Column = place.nextInt ();
-        health = ship3.GetHealth();
-        segm = ship3.GetSegments();
+        column = place.nextInt ();
+        health = ship3.getHealth();
+        segm = ship3.getSegments();
        miniHealth = health/ segm;
-        a = ship3.GetSegments() -1;  
+        a = ship3.getSegments() -1;  
                   }   
                   if (numShip == 2){
         System.out.println ("The ship will build downwards so understand that");
         System.out.println ("You are placing head of StarDestroyer, what Row, : \n");
-        Rowp = place.nextInt (); 
+        rowp = place.nextInt (); 
         System.out.println ("You are placing head of StarDestroyer, what Column: \n");
-        Column = place.nextInt ();
-        health = ship4.GetHealth();
-        segm = ship4.GetSegments();
+        column = place.nextInt ();
+        health = ship4.getHealth();
+        segm = ship4.getSegments();
         miniHealth = health/ segm;
-        a = ship4.GetSegments() -1;    
+        a = ship4.getSegments() -1;    
                   }
                   if (numShip == 1){
         System.out.println ("The ship will build downwards so understand that");
         System.out.println ("You are placing head of BlocadeRunner, what Row, : \n");
-        Rowp = place.nextInt (); 
+        rowp = place.nextInt (); 
         System.out.println ("You are placing head of BlockadeRunner, what Column: \n");
-        Column = place.nextInt ();
-        health = ship5.GetHealth();
-        segm = ship5.GetSegments();
+        column = place.nextInt ();
+        health = ship5.getHealth();
+        segm = ship5.getSegments();
         miniHealth = health/ segm;
-        a = ship5.GetSegments() -1;    
+        a = ship5.getSegments() -1;    
                   }
-                  placeShip (PlayerGrid, Rowp, Column, segm, miniHealth);
+                  placeShip (PlayerGrid, rowp, column, segm, miniHealth);
                   numShip --;
                 }
                 
-    String output = "0 1 2 3 4 5 6 7 8 9 \n";
-    Column = 0;
-    Rowp = 0;
-   for (Column =0; Column < 10; Column++){
-       if ((Column >= 0) && (Column <= 10)){
-           Rowp = 0;
-           output += Column + " ";
+                //put the ships on the grid panel
+    String output = "PLAYER GRID:\n"
+            + "0 1 2 3 4 5 6 7 8 9 \n";
+    column = 0;
+    rowp = 0;
+   for (column =0; column < 10; column++){
+       if ((column >= 0) && (column <= 10)){
+           rowp = 0;
+           output += column + " ";
        }
-       for (Rowp = 0; Rowp < 10; Rowp++){
-           output += PlayerGrid[Rowp][Column] + " ";
+       for (rowp = 0; rowp < 10; rowp++){
+           output += PlayerGrid[rowp][column] + " ";
        }
        output += "\n";
    } 
-//           System.out.println("hi");
            System.out.println(output);
-           JOptionPane.showMessageDialog(null, "User Grid \n" + output);  
+           JOptionPane.showMessageDialog(null,output);  
                 
-//System.out.println ("AHHHHHHHHHHHHHHHAAAAAAAAAAAAAAAAHHHHHHHHHHHHHH");
+
        row = 0;
        col = 0;
-       Rowp = 0;
-       Column = 0;
-         displayGrid(Grid, row, col);
+       rowp = 0;
+       column = 0;
+    displayGrid(row, col);
         int game = 1;
-        int turn =1;
-        int use1, use2, use3, use4, use5 ;
+        boolean turn = true;
+        //get varibles to check which ship has been used
+       
+        String ship;
+                //print out which ships can be fired
+               System.out.println("TIME TO KILL THE ALIENS!\n"
+                        + "Pick a number to fire the corrisponding ship!" +"\n"
+                        + "1.Dreadnaught --- can fire? --- Yes! Fire Away!" +"\n"
+                        + "2.Transporteur --- can fire? --- Yes! Fire Away!" + "\n"
+                        + "3.Cirkalo --- can fire? --- Yes! Fire Away!" + "\n"
+                        + "4.Star Destroyer --- can fire? --- Yes! Fire Away!" + "\n"
+                        + "5.Blockade Runner --- can fire? --- Yes! Fire Away!" + "\n");
+
+        while (game == 1){
+             int use1, use2, use3, use4, use5 ;
+        String check1 = "Yes! Fire Away!";
+        String check2 = "Yes! Fire Away!";
+        String check3 = "Yes! Fire Away!";
+        String check4 = "Yes! Fire Away!";
+        String check5 = "Yes! Fire Away!";
         use1 = 0;
         use2 = 0;
         use3 = 0;
         use4 = 0;
         use5 = 0;
-        String Ship;
-        while (game == 1){
-            if (turn == 1){
+
+            if (turn = true){
             Scanner input = new Scanner(System.in);
-            Ship = input.nextLine();
+            ship = input.nextLine();
                 // Gets the ship that will fire
-               if (Ship.equals(ship1.GetShip()) && use1 == 0){
-                System.out.println (ship1.GetShip() + " fire?");
+               if (ship.equals("1") && use1 == 0){
                 // How many times the ship can fire
-                for (int x = 0; x < ship1.GetFire();){
-                String fire;
-                fire = input.nextLine();
+                for (int x = 0; x < ship1.getFire();){
+//                String fire;
+//                fire = input.nextLine();
                     System.out.println("Where do you want to fire, Column:");
                     int fireCol = input.nextInt();
                     System.out.println ("Where do you want to fire, Row:");
@@ -183,43 +204,51 @@ public class BattleShip {
                     
                 // checks if the user fires
                 if (Grid[fireRow][fireCol] == 0){
-                    System.out.println("you missed");  
+                   System.out.println("~~~~~~~~~~");
+                    System.out.println("YOU MISSED!");  
+                   System.out.println("~~~~~~~~~~");
                 }
                 else {
-                  if ("fire".equals(fire)){
+//                  if ("fire".equals(fire)){
                         // Checks if the ship crits or not
-                  if (ship1.GetCrit() == 3){
+                  if (ship1.getCrit() == 3){
                         System.out.println ("Super Boom");
-                       int damage =  ship1.GetDamage() * 2;
+                       int damage =  ship1.getDamage() * 2;
                        Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - damage);
                     }  
                   else {
                       System.out.println("normal Boom");
                       Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - ship1.getDamage());
-                  }   
-                }
-                use1 = 1; 
-                }
+                }   
+//             }
+              
+            }
                 
                     // makes it fire once
-                    x++;
+                   //1
+                   x++;
+                    //record if it was fired
+                      use1 = 1; 
+                       check1 = "NO! Please don't try!";
                 } 
             }
-               if (Ship.equals(ship2.GetShip()) && use2 == 0){
-                for (int x = 0; x < ship2.GetFire();){
-                System.out.println (ship2.GetShip() + " fire?");
-                String fire = "";
-                fire = input.nextLine();
+               
+               if (ship.equals("2") && use2 == 0){
+                for (int x = 0; x < ship2.getFire();){
+//                String fire = "";
+//                fire = input.nextLine();
                 System.out.println("Where do you want to fire, Column:");
                     int fireCol = input.nextInt();
                     System.out.println ("Where do you want to fire, Row:");
                     int fireRow = input.nextInt();
                      if (Grid[fireRow][fireCol] == 0){
-                    System.out.println("you missed");  
+                         System.out.println("~~~~~~~~~~");
+                    System.out.println("YOU MISSED!");  
+                        System.out.println("~~~~~~~~~~");
                 }
                      else{
-                     if ("fire".equals(fire)){
-                  if (ship2.GetCrit() == 3){
+//                     if ("fire".equals(fire)){
+                  if (ship2.getCrit() == 3){
                         System.out.println ("Super Boom");
                         Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - (ship2.getDamage()*2));
                     }  
@@ -227,27 +256,29 @@ public class BattleShip {
                       System.out.println("normal Boom");
                       Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - ship2.getDamage());
                   }    
-                     }
-                 use2 = 1;
+//                     }
+
                 }
                     x++;
+                  use2 = 1;
+                 check2 = "NO! Please don't try!";
                 }
         }   
-                 if (Ship.equals(ship3.GetShip()) && use3 == 0){
-                System.out.println (ship3.GetShip() + " fire?");
-                for (int x = 0; x < ship3.GetFire();){
-                String fire;
-                fire = input.nextLine();
+                 if (ship.equals("3") && use3 == 0){
+                for (int x = 0; x < ship3.getFire();){
+//                String fire;
+//                fire = input.nextLine();
                 System.out.println("Where do you want to fire, Column:");
                     int fireCol = input.nextInt();
                     System.out.println ("Where do you want to fire, Row:");
                     int fireRow = input.nextInt();
                     if (Grid[fireRow][fireCol] == 0){
-                    System.out.println("you missed");  
+                        System.out.println("~~~~~~~~~~");
+                    System.out.println("YOU MISSED!");  
+                        System.out.println("~~~~~~~~~~");
                 }
                     else {
-                     if ("fire".equals(fire)){
-                  if (ship3.GetCrit() == 3){
+                  if (ship3.getCrit() == 3){
                         System.out.println ("Super Boom");
                         Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - (ship3.getDamage()*2));
                     }  
@@ -255,27 +286,30 @@ public class BattleShip {
                       System.out.println("normal Boom");
                       Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - ship3.getDamage());
                   }   
-                    }
-                  use3 = 1;
+//                    }
+         
                 }
                     x++;
+                  use3 = 1;
+                  check3 = "NO! Please don't try!";
                 }
         } 
-              if (Ship.equals(ship4.GetShip()) && use4 == 0){
-                System.out.println (ship4.GetShip() + " fire?");
-                for (int x = 0; x < ship4.GetFire();){
-                String fire;
-                fire = input.nextLine();
+              if (ship.equals("4") && use4 == 0){
+                for (int x = 0; x < ship4.getFire();){
+//                String fire;
+//                fire = input.nextLine();
                 System.out.println("Where do you want to fire, Column:");
                     int fireCol = input.nextInt();
                     System.out.println ("Where do you want to fire, Row:");
                     int fireRow = input.nextInt();
                     if (Grid[fireRow][fireCol] == 0){
-                    System.out.println("you missed");  
+                         System.out.println("~~~~~~~~~~");
+                    System.out.println("YOU MISSED!");  
+                        System.out.println("~~~~~~~~~~");
                 }
                     else {
-                       if ("fire".equals(fire)){
-                  if (ship4.GetCrit() == 3){
+//                       if ("fire".equals(fire)){
+                  if (ship4.getCrit() == 3){
                         System.out.println ("Super Boom");
                         Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - (ship4.getDamage()*2));
                     }  
@@ -283,28 +317,30 @@ public class BattleShip {
                       System.out.println("normal Boom");
                       Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - ship4.getDamage());
                   } 
-                    }
-                    
-                 use4 = 1;
+//                    }
+
                 }
                     x++;
+                 use4 = 1;
+                 check4 = "NO! Please don't try!";
                 }
         } 
-            if (Ship.equals(ship5.GetShip()) && use5 == 0){
-                System.out.println (ship5.GetShip() + " fire?");
-                for (int x = 0; x < ship5.GetFire();){
-                String fire;
-                fire = input.nextLine();
+            if (ship.equals("5") && use5 == 0){
+                for (int x = 0; x < ship5.getFire();){
+//                String fire;
+//                fire = input.nextLine();
                 System.out.println("Where do you want to fire, Column:");
                     int fireCol = input.nextInt();
                     System.out.println ("Where do you want to fire, Row:");
                     int fireRow = input.nextInt();
                     if (Grid[fireRow][fireCol] == 0){
-                    System.out.println("you missed");  
+                        System.out.println("~~~~~~~~~~");
+                    System.out.println("YOU MISSED!");  
+                        System.out.println("~~~~~~~~~~");
                 }
                     else {
-                     if ("fire".equals(fire)){
-                  if (ship5.GetCrit() == 3){
+//                     if ("fire".equals(fire)){
+                  if (ship5.getCrit() == 3){
                         System.out.println ("Super Boom");
                         Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - (ship5.getDamage()*2));
                     }  
@@ -312,12 +348,14 @@ public class BattleShip {
                       System.out.println("normal Boom");
                       Grid[fireRow][fireCol] = (Grid[fireRow][fireCol] - ship5.getDamage());
                   }   
-                    }
+//                    }
                     
                     
-                 use5 = 1;
+
                 }
                     x++;
+                 use5 = 1;
+                 check5 = "NO! Please don't try!";
                 }
         }
             if (use1 + use2 + use3 + use4 + use5 == 5){
@@ -328,36 +366,50 @@ public class BattleShip {
                     use5 = 0;
                     System.out.println ("Good work, you mader it to where you are supposed to ");
                 }
-             turn =2;
-             System.out.println (use1);
-             System.out.println (use2);
-             System.out.println (use3);
-             System.out.println (use4);
-             System.out.println (use5);
+             turn = false;   
+//            System.out.println("Fired = 1 || Can Fire = 0");
+//             System.out.println (use1 + " - Dreadnaught");
+//             System.out.println (use2 + " - Transporteur");
+//             System.out.println (use3 + " - Cirkalo");
+//             System.out.println (use4 + " - Star Destroyer");
+//             System.out.println (use5 + " - Blockade Runner");
+//        
+                   System.out.println("TIME TO KILL THE ALIENS!\n"
+                        + "Pick a number to fire the corrisponding ship!:\n"
+                        + "1.Dreadnaught --- can fire? --- " + check1 + "\n"
+                        + "2.Transporteur --- can fire? --- " + check2 + "\n"
+                        + "3.Cirkalo --- can fire? --- " + check3 + "\n"
+                        + "4.Star Destroyer --- can fire? --- " + check4 + "\n"
+                        + "5.Blockade Runner --- can fire? --- " + check5);
+                System.out.println("");
+                System.out.println("---------------------------------------------");
+                System.out.println("");
+                
             }
-            else if (turn == 2 && i != 0){
-                Rowp = (int) (Math.random() * 9);
-                Column = (int) (Math.random() * 9);;
+            else if (turn = true && i != 0){
+                rowp = (int) (Math.random() * 9);
+                column = (int) (Math.random() * 9);;
       System.out.println (i);
           System.out.println ("Go");
-          if (PlayerGrid[Rowp][Column] != 0){
+          if (PlayerGrid[rowp][column] != 0){
               System.out.println ("Found One");
               int damage = ship6.getDamage();
-             PlayerGrid[Rowp][Column] = (PlayerGrid[Rowp][Column] - damage);
+             PlayerGrid[rowp][column] = (PlayerGrid[rowp][column] - damage);
              i = i-1;
           }
-          else if (PlayerGrid[Rowp][Column] == 0){
+          else if (PlayerGrid[rowp][column] == 0){
         System.out.println ("Miss");
     } 
                 System.out.println (i);
-                turn =1;
+                turn = true;
             } 
         }
         System.out.println ("We are done all of the test");
        }
     
-  public static void displayGrid(int Grid[][],int col,int row) {
-String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
+  public static void displayGrid(int col,int row) {
+String output = "  ENEMY ALIENS GRID:\n"
+        + "0 1 2 3 4 5 6 7 8 9 10 \n";
     for (row = 0; row < 10; row++) {
       if ((row >= 0) && (row <= 10)) {
         col = 0;
@@ -371,21 +423,20 @@ String output = "  0 1 2 3 4 5 6 7 8 9 10 \n";
      // System.out.println(output);
       output += "\n";
     }
-    System.out.println ("hi");
     System.out.println(output);
     
   }
   public int Fire(int row){
 return 1;
 }
-  public static void placeShip (int PlayerGrid[][], int Rowp, int Column, int segm, int miniHealth){
+  public static void placeShip (int PlayerGrid[][], int rowp, int column, int segm, int miniHealth){
       //Boolean noError = true;
-         if (PlayerGrid[Rowp][Column] != 0){
+         if (PlayerGrid[rowp][column] != 0){
                  System.out.print ("there is a ship there, *facepalm*");
                  segm = -1;
              } 
          try {
-          if (PlayerGrid[Rowp][Column - 1] != 0){
+          if (PlayerGrid[rowp][column - 1] != 0){
                  System.out.println ("there is a ship there, *facepalm*");
                  segm = -1;
              }    
@@ -393,7 +444,7 @@ return 1;
              System.out.println ("It is out of bounds above so there can be no ship there");
          }
          try{
-         if (PlayerGrid[Rowp][Column + 1] != 0){
+         if (PlayerGrid[rowp][column + 1] != 0){
                  System.out.println ("there is a ship there, *facepalm*");
                  segm = -1;
              }     
@@ -402,9 +453,9 @@ return 1;
          }
              while (segm > 0){
                                    try {
-                      PlayerGrid [Rowp][Column + segm] = miniHealth;
-                      System.out.println (Rowp + " " + (Column + segm));
-                       System.out.println(PlayerGrid [Rowp][Column+ segm]);
+                      PlayerGrid [rowp][column + segm] = miniHealth;
+                      System.out.println (rowp + " " + (column + segm));
+                       System.out.println(PlayerGrid [rowp][column+ segm]);
                        System.out.println(segm);
                        segm--;   
                        }

@@ -24,19 +24,19 @@ public class Transporteur extends Ship {
         damage = 10;
         Ship = "Transporteur";
     }
-    public int GetFire(){
+    public int getFire(){
         return fire;
     }
-    public int GetDamage(){
+    public int getDamage(){
         return damage;
     }
-    public String GetShip (){
+    public String getShip (){
         return Ship;
        }
-            public int GetHealth (){
+            public int getHealth (){
         return health;
        }
-        public int GetSegments (){
+        public int getSegments (){
         return segments;
        }
 }
